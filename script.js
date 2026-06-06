@@ -1,23 +1,22 @@
-document.querySelectorAll('.gnb > li').forEach(menu => {
+document.querySelectorAll('.menu a').forEach(link => {
 
-menu.addEventListener('mouseenter', () => {
+    link.addEventListener('click', e => {
 
-const sub = menu.querySelector('.submenu');
+        e.preventDefault();
 
-if(sub){
-sub.style.display = 'block';
-}
+        const target =
+            document.querySelector(
+                link.getAttribute('href')
+            );
 
-});
+        if (target) {
 
-menu.addEventListener('mouseleave', () => {
+            target.scrollIntoView({
+                behavior: 'smooth'
+            });
 
-const sub = menu.querySelector('.submenu');
+        }
 
-if(sub){
-sub.style.display = 'none';
-}
-
-});
+    });
 
 });
