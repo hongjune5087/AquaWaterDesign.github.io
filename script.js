@@ -1,28 +1,23 @@
-document.addEventListener('DOMContentLoaded', () => {
+document.querySelectorAll('.gnb > li').forEach(menu => {
 
-    const topBtn = document.querySelector('.scroll-top');
+menu.addEventListener('mouseenter', () => {
 
-    if(topBtn){
+const sub = menu.querySelector('.submenu');
 
-        window.addEventListener('scroll', () => {
+if(sub){
+sub.style.display = 'block';
+}
 
-            if(window.scrollY > 300){
-                topBtn.style.display = 'block';
-            }else{
-                topBtn.style.display = 'none';
-            }
+});
 
-        });
+menu.addEventListener('mouseleave', () => {
 
-        topBtn.addEventListener('click', (e) => {
-            e.preventDefault();
+const sub = menu.querySelector('.submenu');
 
-            window.scrollTo({
-                top:0,
-                behavior:'smooth'
-            });
-        });
+if(sub){
+sub.style.display = 'none';
+}
 
-    }
+});
 
 });
